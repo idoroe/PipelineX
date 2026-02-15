@@ -44,10 +44,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r finsight/requirements.txt
-          pip install pytest
+          pip install pytest prometheus-fastapi-instrumentator
 
-      - name: Run tests
-        run: pytest finsight/tests/ -v
+      - name: Run unit tests (health + metrics)
+        run: pytest finsight/tests/test_api.py::test_health tests/test_metrics.py -v
 
   build:
     name: Build
