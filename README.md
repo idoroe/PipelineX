@@ -55,12 +55,13 @@ cd PipelineX
 docker compose up --build
 ```
 
-| Service    | URL                   | Description                    |
-|------------|-----------------------|--------------------------------|
-| API        | http://localhost:8000 | FinSight REST API              |
-| Frontend   | http://localhost:3000 | FinSight UI                    |
-| Prometheus | http://localhost:9090 | Metrics collection             |
-| Grafana    | http://localhost:3001 | Dashboards (no login required) |
+| Service    | URL                        | Description                    |
+|------------|----------------------------|--------------------------------|
+| Frontend   | http://localhost:3000      | FinSight UI                    |
+| API Docs   | http://localhost:8000/docs | Interactive Swagger API docs   |
+| API Health | http://localhost:8000/health | Health check endpoint        |
+| Grafana    | http://localhost:3001      | Dashboards (no login required) |
+| Prometheus | http://localhost:9090      | Metrics collection             |
 
 ### Verify everything is running
 
