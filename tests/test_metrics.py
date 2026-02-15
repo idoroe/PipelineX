@@ -1,17 +1,8 @@
 """Tests for PipelineX metrics overlay."""
 
-import sys
-from pathlib import Path
-
-import pytest
 from fastapi.testclient import TestClient
 
-# Add finsight to path so overlay can import it
-finsight_root = Path(__file__).resolve().parent.parent / "finsight"
-if str(finsight_root) not in sys.path:
-    sys.path.insert(0, str(finsight_root))
-
-from overlay.metrics import app  # noqa: E402
+from overlay.metrics import app
 
 client = TestClient(app)
 
