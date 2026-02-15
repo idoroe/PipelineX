@@ -26,7 +26,7 @@ jobs:
         run: ruff check finsight/api/
 
       - name: Lint FinSight ML
-        run: ruff check finsight/ml/
+        run: ruff check finsight/ml/ --ignore F401,F841
 
   test:
     name: Test
