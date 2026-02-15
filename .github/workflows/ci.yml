@@ -47,6 +47,8 @@ jobs:
           pip install pytest prometheus-fastapi-instrumentator
 
       - name: Run unit tests (health + metrics)
+        env:
+          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/finsight
         run: pytest finsight/tests/test_api.py::test_health tests/test_metrics.py -v
 
   build:
