@@ -1,0 +1,38 @@
+# PipelineX - personal / secret files
+personal_Instructions.txt
+PERSONAL_INSTRUCTIONS.TXT
+
+# Environment
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Grafana runtime data
+monitoring/grafana/data/
+
+# Prometheus runtime data
+monitoring/prometheus/data/
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude
+.claude/
