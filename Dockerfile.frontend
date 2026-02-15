@@ -1,0 +1,25 @@
+FROM node:20-alpine AS build
+
+WORKDIR /app
+
+COPY finsight/frontend/package.json finsight/frontend/package-lock.json ./
+RUN npm ci
+
+COPY finsight/frontend/ .
+
+# Point to API service in Docker network
+ENV VITE_API_URL=http://localhost:8000
+RUN npm run build
+
+# Serve with lightweight server
+FROM node:20-alpine
+RUN npm install -g serve
+WORKDIR /app
+COPY --from=build /app/dist ./dist
+
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
+
+CMD ["serve", "-s", "dist", "-l", "3000"]
