@@ -1,0 +1,3 @@
+[submodule "finsight"]
+	path = finsight
+	url = https://github.com/idoroe/Finsight-Lite.git
